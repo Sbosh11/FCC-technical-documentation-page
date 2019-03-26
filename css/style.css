@@ -68,7 +68,7 @@ a, h1, h2, h3, h4, header {
 }
 
 #navbar ul {
- overflow-y:auto;
+ /*overflow-y:auto;*/
   overflow-x:hidden;
 }
 
