@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FCC: Technical Documentation Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <nav id="navbar" class="flex-column">
+    <header id="header-side">
+      <h1>Basic concepts of flexbox</h1>
+    </header>
+    <ul>
+      <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+      <li><a href="#Why_Flexbox?" class="nav-link">Why Flexbox?</a></li>
+      <li><a href="#Simple_flexbox_example" class="nav-link">Simple flexbox example</a></li>
+      <li><a href="#The_two_axes_of_flexbox" class="nav-link">The two axes of flexbox</a></li>
+      <li><a href="#Justify_Content" class="nav-link">Justify Content</a></li>
+      <li><a href="#Align_Items" class="nav-link">Align Items</a></li>
+      <li><a href="#Align_Self" class="nav-link">Align Self</a></li>
+      <li><a href="#Align_Content" class="nav-link">Align Content</a></li>
+      <li><a href="#Reference" class="nav-link">Reference</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc" class="flex-column">
+    <section class="main-section" id="Introduction">
+      <header>
+        <h2>Introduction</h2>
+      </header>
+      <article>
+
+        <p>The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and
+          as a method that could offer space distribution between items in an interface and powerful alignment
+          capabilities. This article gives an outline of the main features of flexbox, which we will be exploring in
+          more detail in the rest of these guides.</p>
+      </article>
+
+    </section>
+    <section class="main-section" id="Why_Flexbox?">
+      <header>
+        <h2>Why Flexbox?</h2>
+      </header>
+      <article>
+
+        <p>For a long time, the only reliable cross browser-compatible tools available for creating CSS layouts were
+          things like floats and positioning. These are fine and they work, but in some ways they are also rather
+          limiting and frustrating.</p>
+        <p>The following simple layout requirements are either difficult or impossible to achieve with such tools, in
+          any kind of convenient, flexible way:</p>
+        <ul>
+          <li>Vertically centering a block of content inside its parent.
+
+          </li>
+          <li>Making all the children of a container take up an equal amount of the available width/height, regardless
+            of how much width/height is available.</li>
+          <li>
+            Making all columns in a multiple column layout adopt the same height even if they contain a different amount
+            of content.
+          </li>
+        </ul>
+        <p>
+          As you'll see in subsequent sections, flexbox makes a lot of layout tasks much easier. Let's dig in!
+        </p>
+
+      </article>
+
+    </section>
+    <section class="main-section" id="Simple_flexbox_example">
+      <header>
+        <h2>Simple flexbox example</h2>
+      </header>
+      <article>
+
+        <p>In the following example a container has been set to display: flex, which means that the three child items
+          become flex items. The value of justify-content has been set to space-between in order to space the items out
+          evenly on the main axis. An equal amount of space is placed between each item with the left and right items
+          being flush with the edges of the flex container. You can also see that the items are stretching on the cross
+          axis, due to the default value of align-items being stretch. The items stretch to the height of the flex
+          container, making them each appear as tall as the tallest item.</p>
+
+        <code>.container {
+          <br>display:flex;/* or inline-flex */<br>
+          }
+        </code>
+
+        <img src="https://mdn.mozillademos.org/files/13408/flexbox-example2.png">
+        <p>
+          So, this single declaration gives us everything we need — incredible, right? We have our multiple column
+          layout with equal sized columns, and the columns are all the same height. This is because the default values
+          given to flex items (the children of the flex container) are set up to solve common problems such as this.
+          More on those later.
+        </p>
+
+      </article>
+
+    </section>
+    <section class="main-section" id="The_two_axes_of_flexbox">
+      <header>
+        <h2>The two axes of flexbox</h2>
+      </header>
+      <article>
+
+        <p>When working with flexbox you need to think in terms of two axes — the main axis and the cross axis. The main
+          axis is defined by the flex-direction property, and the cross axis runs perpendicular to it. Everything we do
+          with flexbox refers back to these axes, so it is worth understanding how they work from the outset.</p>
+
+        <img src="https://cdn-images-1.medium.com/max/1600/0*8xjy37n5V5CBj51J.png">
+
+        <h3>The main axis</h3>
+
+        <p>The main axis is defined by flex-direction, which has four possible values:</p>
+        <ul>
+          <li>row (default): left to right in ltr; right to left in rtl</li>
+          <li>row-reverse: right to left in ltr; left to right in rtl</li>
+          <li>column: same as row but top to bottom</li>
+          <li>column-reverse:same as row-reverse but bottom to top</li>
+        </ul>
+
+        <p>Should you choose row or row-reverse, your main axis will run along the row in the inline direction.</p>
+
+        <img src="https://mdn.mozillademos.org/files/15614/Basics1.png">
+
+        <p>Choose column or column-reverse and your main axis will run from the top of the page to the bottom — in the
+          block direction</p>
+        <img src="https://mdn.mozillademos.org/files/15615/Basics2.png">
+        <h3>The cross axis</h3>
+        <p>The cross axis runs perpendicular to the main axis, therefore if your flex-direction (main axis) is set to
+          row or row-reverse the cross axis runs down the columns.</p>
+        <img src="https://mdn.mozillademos.org/files/15616/Basics3.png">
+        <p>If your main axis is column or column-reverse then the cross axis runs along the rows.</p>
+        <img src="https://mdn.mozillademos.org/files/15617/Basics4.png">
+        <p>Understanding which axis is which is important when we start to look at aligning and justifying flex items;
+          flexbox features properties that align and justify content along one axis or the other.</p>
+      </article>
+
+    </section>
+    <section class="main-section" id="Justify_Content">
+      <header>
+        <h2>Justify Content</h2>
+      </header>
+      <article>
+
+        <p>The CSS justify-content property defines how the browser distributes space between and around content items
+          along the main-axis of a flex container, and the inline axis of a grid container.
+        </p>
+
+
+        <code> .container {
+          <br>display:flex;<br>
+          Justify content:flex-start | flex-end | center | space-between | space-around | space-evenly
+          <br>}</code>
+        <img id="justify-pic"
+          src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/10/justify-content-illustration.jpg">
+        <li class="imageCaption"> Image source: <a href="https://tympanus.net/codrops/css_reference/flexbox/"
+            target="_blank">tympanus.net/flexbox/</a></li>
+
+      </article>
+
+
+    </section>
+
+    <section class="main-section" id="Align_Items">
+      <header>
+        <h2>Align Items</h2>
+      </header>
+      <article>
+
+        <p>The CSS align-items property sets the align-self value on all direct children as a group. The align-self
+          property sets the alignment of an item within its containing block. In Flexbox it controls the alignment of
+          items on the Cross Axis, in Grid Layout it controls the alignment of items on the Block Axis within their grid
+          area.
+        </p>
+        <code> .container {
+          <br>display:flex;<br>
+          align-items: flex-start | flex-end | center | baseline | stretch;
+          <br>}</code>
+
+        <img id="justify-pic"
+          src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/10/align-items-illustration.jpg">
+        <li class="imageCaption"> Image source: <a href="https://tympanus.net/codrops/css_reference/flexbox/"
+            target="_blank">tympanus.net/flexbox/</a></li>
+      </article>
+    </section>
+
+
+    <section class="main-section" id="Align_Self">
+      <header>
+        <h2>Align Self</h2>
+      </header>
+      <article>
+
+        <p>The align-self CSS property aligns flex items of the current flex line overriding the align-items value. If
+          any of the item's cross-axis margin is set to auto, then align-self is ignored. In Grid layout align-self
+          aligns the item inside the grid area.
+        </p>
+
+        <code>.item {
+          <br>
+          align-self: auto | flex-start | flex-end | center | baseline | stretch
+          <br>}</code>
+        <img id="justify-pic"
+          src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2015/02/align-self-illustration.png">
+        <li class="imageCaption"> Image source: <a href="https://tympanus.net/codrops/css_reference/flexbox/"
+            target="_blank">tympanus.net/flexbox/</a></li>
+      </article>
+
+    </section>
+    <section class="main-section" id="Align_Content">
+      <header>
+        <h2>Align Content</h2>
+      </header>
+      <article>
+
+        <p>The CSS align-content property sets how the browser distributes space between and around content items along
+          the cross-axis of a flexbox container, and the main-axis of a grid container.</p>
+        <code>.container {
+          <br>display:flex;<br>
+          align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+
+          <br>}</code>
+        <img id="justify-pic"
+          src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/10/align-content-illustration.jpg">
+        <li class="imageCaption"> Image source: <a href="https://tympanus.net/codrops/css_reference/flexbox/"
+            target="_blank">tympanus.net/flexbox/</a></li>
+      </article>
+    </section>
+    <section class="main-section" id="Reference">
+      <header>Reference</header>
+      <article>
+        <li class="imageCaption">Reference for this documentaion is taken from: <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">MDN</a></li>
+    </section>
+  </main>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
