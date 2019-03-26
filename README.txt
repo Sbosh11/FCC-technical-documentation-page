@@ -1,3 +1,3 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/Sbosh11/pen/pQbGve.
+ You can find this live page at https://tech-doc-page-sibs.netlify.com/#The_two_axes_of_flexbox.
 
  
