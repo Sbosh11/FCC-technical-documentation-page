@@ -30,8 +30,11 @@ header {
   border: 1px solid #f6f6f6;
  border-bottom: 0;
  padding: 10px 20px;
+ display: flex;
 }
-
+#navbar li > a {
+  flex:1;
+}
 
 a, h1, h2, h3, h4, header {
   text-decoration:none;
